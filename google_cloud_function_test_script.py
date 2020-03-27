@@ -16,12 +16,12 @@ this test script will push a test text to Google Sheets every 1 second and after
 
 
 
-!pip install --upgrade -q gspread
+# !pip install --upgrade -q gspread
 
-from google.colab import auth
-auth.authenticate_user()
+# from google.colab import auth
+# auth.authenticate_user()
+
 import time
-
 import gspread
 from oauth2client.client import GoogleCredentials
 
