@@ -1,2 +1,3 @@
 def run(event, context):
-    return event 
+    print("This is a test")
+    return True

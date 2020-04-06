@@ -32,11 +32,11 @@ def clear_worksheet(ws):
     cell.value = ''
   ws.update_cells(cell_list)
 
-def updateSheet(cnt):
+def updateSheet(cnt, worksheet):
   # sh = gc.create('A new spreadsheet')
   test_text = f"This is a Test: {cnt}"
   # Open our new sheet and add some data.
-  worksheet = gc.open('GCP - Cloud Function TEST Sheet').sheet1
+  # worksheet = gc.open('GCP - Cloud Function TEST Sheet').sheet1
 
   worksheet.update_acell(f'A{cnt+1}', test_text)
 
@@ -48,19 +48,19 @@ def run(request, context):
   import gspread
   from oauth2client.client import GoogleCredentials
   gc = gspread.authorize(GoogleCredentials.get_application_default())
-  
+  worksheet = gc.open('GCP - Cloud Function TEST Sheet').sheet1
   cnt = 0
   totCnt = 0
   while True:
     cnt = cnt+1
     if cnt%10==0:
-      worksheet = gc.open('GCP - Cloud Function TEST Sheet').sheet1
+      
       clear_worksheet(worksheet)
       totCnt += 1 
       worksheet.update_acell("C5", f"total loops: {totCnt}")
       cnt=0
     # print(cnt)
-    updateSheet(cnt)
+    updateSheet(cnt, worksheet)
     
     
     time.sleep(1)
