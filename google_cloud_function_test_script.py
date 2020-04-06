@@ -21,11 +21,9 @@ this test script will push a test text to Google Sheets every 1 second and after
 # from google.colab import auth
 # auth.authenticate_user()
 
-import time
-import gspread
-from oauth2client.client import GoogleCredentials
 
-gc = gspread.authorize(GoogleCredentials.get_application_default())
+
+
 
 def clear_worksheet(ws):
 
@@ -45,6 +43,12 @@ def updateSheet(cnt):
   # Go to https://sheets.google.com to see your new spreadsheet.
 
 def run(event):
+  
+  import time
+  import gspread
+  from oauth2client.client import GoogleCredentials
+  gc = gspread.authorize(GoogleCredentials.get_application_default())
+  
   cnt = 0
   totCnt = 0
   while True:
