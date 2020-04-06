@@ -44,11 +44,16 @@ def updateSheet(cnt, worksheet):
 
 def run(request, context):
   
+  print("Starting the function!")
   import time
   import gspread
   from oauth2client.client import GoogleCredentials
   gc = gspread.authorize(GoogleCredentials.get_application_default())
+
+  print("Reading the sheet:")
   worksheet = gc.open('GCP - Cloud Function TEST Sheet').sheet1
+  print(worksheet)
+
   cnt = 0
   totCnt = 0
   while True:
