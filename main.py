@@ -1,3 +1,3 @@
-def run(event, context):
+def test(event, context):
     print("This is a test")
     return True
