@@ -1,2 +1,2 @@
-def run(event):
+def run(event, context):
     return event 

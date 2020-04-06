@@ -42,7 +42,7 @@ def updateSheet(cnt):
 
   # Go to https://sheets.google.com to see your new spreadsheet.
 
-def run(request):
+def run(request, context):
   
   import time
   import gspread
