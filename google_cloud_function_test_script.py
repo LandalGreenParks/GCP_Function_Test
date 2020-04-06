@@ -44,7 +44,7 @@ def updateSheet(cnt):
 
   # Go to https://sheets.google.com to see your new spreadsheet.
 
-def run():
+def run(event):
   cnt = 0
   totCnt = 0
   while True:
